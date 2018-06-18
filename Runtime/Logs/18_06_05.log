@@ -1,0 +1,6 @@
+[ 2018-06-05T22:20:07+08:00 ] 127.0.0.1 /onethink/index.php?s=/admin/goods/index.html
+ERR: Think\Controller:_empty方法不存在！
+
+[ 2018-06-05T22:20:09+08:00 ] 127.0.0.1 /onethink/index.php?s=/admin/goods/category.html
+ERR: Think\Controller:_empty方法不存在！
+

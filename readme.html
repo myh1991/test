@@ -1,0 +1,52 @@
+1.分类表
+DROP TABLE IF EXISTS `onethink_goods_category`;
+CREATE TABLE `onethink_goods_category` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `pid` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL COMMENT '分类',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+2.属性名表
+DROP TABLE IF EXISTS `onethink_goods_attr`;
+CREATE TABLE `onethink_goods_attr` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) DEFAULT NULL,
+  `attr_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+3.属性值表
+DROP TABLE IF EXISTS `onethink_attr_value`;
+CREATE TABLE `onethink_attr_value` (
+  `id` int(11) NOT NULL,
+  `attr_value` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+4.属性名-属性值映射表
+DROP TABLE IF EXISTS `onethink_attr_to_value`;
+CREATE TABLE `onethink_attr_to_value` (
+  `aid` int(11) NOT NULL,
+  `vid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`aid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+5.产品表
+DROP TABLE IF EXISTS `onethink_goods`;
+CREATE TABLE `onethink_goods` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `pic` varchar(255) CHARACTER SET utf32 DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+6.产品属性映射表
+DROP TABLE IF EXISTS `onethink_goods_to_attr`;
+CREATE TABLE `onethink_goods_to_attr` (
+  `id` int(11) NOT NULL,
+  `goods_id` int(11) DEFAULT NULL,
+  `vid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
